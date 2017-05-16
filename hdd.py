@@ -48,7 +48,7 @@ def init():
     for i in range(int(Grammarnum['GrammarNum'])):
         temp = fo.readline()
         Grammar.append(temp.split())
-        Grammar[i][3] = float(Grammar[i][3])
+        Grammar[i][-1] = float(Grammar[i][-1])
     fo.close()
 
 
@@ -60,7 +60,7 @@ def progra(root):
     for g in Grammar:
         if g[0] == root:
             temp = g[-1]
-            for i in range(1,len(g)-1):
+            for i in range(1, len(g) - 1):
                 Name = g[i]
                 Proba = progra(Name)
                 temp *= Proba
@@ -76,11 +76,12 @@ def outp(root):
     if father in [1, 2, 4, 8]:
         return
     g = BestRule[root]
-    left, right = g[1], g[2]
-    fw.write('%s -> %s || %s\n' % (root, left, right))
-    outp(left)
-    outp(right)
-
+    fw.write('%s -> %s' % (root, g[1]))
+    for i in range(2, len(g) - 1):
+        fw.write(' || %s' % g[i])
+    fw.write('\n')
+    for i in range(1, len(g) - 1):
+        outp(g[i])
 
 import fileinput
 import re
