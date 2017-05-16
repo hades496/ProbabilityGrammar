@@ -14,11 +14,11 @@ def read_dict(fo):
                 dict[s[i]] = s[i + 1]
     return dict
 
+
 def init():
     global Grammar
     global GrammarObj
     fo = open('d:\py\ProbabilityGrammar\\input.txt', 'r')
-    fw = open('d:\py\ProbabilityGrammar\\output.txt', 'w')
     ##get structure imformation
     # get Roof
     Roof = read_dict(fo)
@@ -50,7 +50,7 @@ def init():
         Grammar.append(temp.split())
         Grammar[i][3] = float(Grammar[i][3])
     fo.close()
-    fw.close()
+
 
 def progra(root):
     father = GrammarObj[root]
@@ -59,15 +59,17 @@ def progra(root):
     res = 0
     for g in Grammar:
         if g[0] == root:
-            left, right = g[1], g[2]
-            lchild, rchild = GrammarObj[left], GrammarObj[right]
-            lpro, rpro = progra(left), progra(right)
-            temp = lpro * rpro * g[3]
+            temp = g[-1]
+            for i in range(1,len(g)-1):
+                Name = g[i]
+                Proba = progra(Name)
+                temp *= Proba
             if (temp > res):
-                res, lbest, rbest, bes = temp, left, right, g
+                res, bes = temp, g
     # print '%s(%d) = %s(%d) + %s(%d)\n P = %f'%(root,father,left,lchild,right,rchild,res)
     BestRule[root] = bes
-    return res;
+    return res
+
 
 def outp(root):
     father = GrammarObj[root]
@@ -75,9 +77,10 @@ def outp(root):
         return
     g = BestRule[root]
     left, right = g[1], g[2]
-    print '%s -> %s || %s' % (root, left, right)
+    fw.write('%s -> %s || %s\n' % (root, left, right))
     outp(left)
     outp(right)
+
 
 import fileinput
 import re
@@ -87,5 +90,8 @@ Grammar = []
 BestRule = {}
 init()
 res = progra('Building')
-print 'The best answer of P = %f' % res
+fw = open('d:\py\ProbabilityGrammar\\output.txt', 'w')
+fw.write('The best answer of P = %f\n' % res)
 outp('Building')
+fw.close()
+## open file "d:\py\ProbabilityGrammar\\output.txt"

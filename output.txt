@@ -1,0 +1,4 @@
+The best answer of P = 0.288000
+Building -> Roof || Wall
+Wall -> WallBody || Annex
+Annex -> Door || Window
