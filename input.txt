@@ -1,0 +1,29 @@
+Label Roof Scale [1,1,1] Transform [0,0,0,0,0,0]
+Num 4
+Label Wall1 Scale [1,1,1] Transform [1,0,0,0,0,0]
+Label Wall2 Scale [1,1,1] Transform [0,1,0,0,0,1.570796]
+Label Wall3 Scale [1,1,1] Transform [-1,0,0,0,0,3.141593]
+Label Wall4 Scale [1,1,1] Transform [0,-1,0,0,0,4.712389]
+Label Door Scale [1,1,1] Transform [1,0,0,0,0,0]
+Num 4 
+Label Window1 Scale [1,1,1] Transform [1,0,0,0,0,0]
+Label Window2 Scale [1,1,1] Transform [0,1,0,0,0,1.570796]
+Label Window3 Scale [1,1,1] Transform [-1,0,0,0,0,3.141593]
+Label Window4 Scale [1,1,1] Transform [0,-1,0,0,0,4.712389]
+GrammarObject 9 
+Building 0b1111
+Roof 0b1000
+Wall 0b0111
+WallBody 0b0100
+Annex 0b0011
+Door 0b0010
+Window 0b0001
+RoofDoor 0b1010
+WallWin 0b0101
+GrammarNum 6
+Building Roof Wall 0.6
+Wall WallBody Annex 0.8
+Annex Door Window 0.6
+Building RoofDoor WallWin 0.4
+RoofDoor Roof Door 0.5
+WallWin WallBody Window 0.5
