@@ -28,5 +28,3 @@ Wall WallBody Annex 0.8
 Annex Door Window 0.6
 RoofDoor Roof Door 0.5
 WallWin WallBody Window 0.5
-
-123
