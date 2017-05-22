@@ -18,7 +18,7 @@ def read_dict(fo):
 def init():
     global Grammar
     global GrammarObj
-    fo = open('d:\py\ProbabilityGrammar\\input.txt', 'r')
+    fo = open('F:\Github\ProbabilityGrammar\\input.txt', 'r')
     ##get structure imformation
     # get Roof
     Roof = read_dict(fo)
@@ -91,7 +91,7 @@ Grammar = []
 BestRule = {}
 init()
 res = progra('Building')
-fw = open('d:\py\ProbabilityGrammar\\output.txt', 'w')
+fw = open('F:\Github\ProbabilityGrammar\\output.txt', 'w')
 fw.write('The best answer of P = %f\n' % res)
 outp('Building')
 fw.close()
