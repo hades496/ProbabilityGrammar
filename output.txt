@@ -1,4 +1,12 @@
-The best answer of P = 0.288000
-Building -> Roof || Wall
-Wall -> WallBody || Annex
-Annex -> Door || Window
+The best answer of P = 0.384000
+
+Grammar of Each Object:
+    Building    ->       Roof      ||       Wall     
+      Wall      ->     WallBody    ||      Annex     
+     Annex      ->       Door      ||      Window    
+
+Position of Each Object:
+    WallBody   :( 29.409536, 39.305736, 44.277932)
+     Window    :(  4.409536, 89.305736, 59.277932)
+      Door     :( 41.909536, 89.305736, 19.277932)
+      Roof     :( 29.409536, 39.305736, 94.277932)
