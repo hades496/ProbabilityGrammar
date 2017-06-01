@@ -74,19 +74,27 @@ def progra(root):
     BestRule[root] = bes
     return res
 
+    # WallBody   :( 29.409536, 39.305736, 44.277932)
+    #  Window    :(  4.409536, 89.305736, 59.277932)
+    #   Door     :( 41.909536, 89.305736, 19.277932)
+    #   Roof     :( 29.409536, 39.305736, 94.277932)
 
-def Sum(a, b):
-    return a + b
+
+def MatrixMults(a, b):
+    dx, dy, dz, rx, ry, rz = a[0], a[1], a[2], a[3], a[4], a[5]
+    d1, d2, d3, d4, d5, d6 = b[0] * rx + dx, b[1] * ry + dy, b[2] * rz + dz, b[3], b[4], b[5]
+    return [d1, d2, d3, d4, d5, d6]
 
 
 def GetTruePosition(root, NowCoodinate):
+    print root, NowCoodinate[:3]
     father = GrammarObj[root]
     if father in [1, 2, 4, 8]:
         TruePosition[root] = NowCoodinate
         return
     g = BestRule[root]
     for i in range(1, len(g) - 1, 2):
-        NewPosition = map(Sum, NowCoodinate, g[i + 1])
+        NewPosition = MatrixMults(NowCoodinate, g[i + 1])
         GetTruePosition(g[i], NewPosition)
 
 
@@ -139,7 +147,8 @@ OutputFile = 'output.txt'
 CENTERWIDTH = 15
 init()
 res = progra(root)
-GetTruePosition(root, [29.409536, 39.305736, 44.277932, 0, 0, 0])
+# GetTruePosition(root, [29.409536, 39.305736, 44.277932, 1,1,1])
+GetTruePosition(root, [0, 0, 0, 1, 1, 1])
 fw = open(OutputFile, 'w')
 fw.write('The best answer of P = %f\n' % res)
 fw.write('\nGrammar of Each Object:\n')

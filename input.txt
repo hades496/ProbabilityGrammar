@@ -21,6 +21,6 @@ Window 0b0001
 RoofDoor 0b1010
 WallWin 0b0101
 GrammarNum 3
-Building Roof [0,0,50,0,0,0] Wall [0,0,0,0,0,0] 0.8
-Wall WallBody [0,0,0,0,0,0] Annex [0,50,0,0,0,0] 0.8
-Annex Door [12.5,0,-25,0,0,0] Window [-25,0,15,0,0,0] 0.6
+Building Roof [0,0,50,1,1,1] Wall [0,0,0,1,1,1] 0.8
+Wall WallBody [0,0,0,1,1,1] Annex [0,50,0,1,1,1] 0.8
+Annex Door [12.5,0,-25,1,1,1] Window [-25,0,15,1,1,1] 0.6
